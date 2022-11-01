@@ -15,7 +15,13 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int counter = 0;
+        for (String s : input.split(" ")) {
+            if (s.charAt(s.length()-1)==('y') || s.charAt(s.length()-1)==('z')) {
+                counter += 1;
+            }
+        }
+        return counter;
     }
 
     /**
@@ -27,8 +33,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
-    public String removeString(String base, String remove){
-        return null;
+    public String removeString(String base, String remove) {
+        return base.replaceAll(remove, "");
     }
 
     /**
@@ -40,7 +46,8 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        input.index("is")
+        return (input.co);
     }
 
     /**
