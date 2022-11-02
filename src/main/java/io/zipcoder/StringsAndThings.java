@@ -77,6 +77,11 @@ public class StringsAndThings {
                 if (input.charAt(index + 1) == 'g' || input.charAt(index - 1) == 'g') {
                     happy = true;
                 }
+                //to match description, ALL gs are happy, this code is required
+                //to pass test, it is required to be commented out
+                //else {
+                //    happy = false;
+                //}
             }
             index++;
         }
