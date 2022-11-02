@@ -98,19 +98,13 @@ public class StringsAndThings {
         for (String s : input.split("")) {
             String threeWiseMen = s+s+s;
             while ((index = input.indexOf(threeWiseMen, index)) != -1) {
-                theCount++;
                 if (!indices.contains(index)) {
                     indices.add(index);
+                    theCount++;
                 }
                 index++;
             }
 
-        }
-
-        Integer[] ia = new Integer[indices.size()];
-        ia = indices.toArray(ia);
-        for (Integer i : ia) {
-            System.out.print(i+" ");
         }
         return theCount;
     }
