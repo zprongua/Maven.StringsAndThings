@@ -1,5 +1,7 @@
 package io.zipcoder;
 
+import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 /**
  * @author tariq
@@ -45,9 +47,19 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean containsEqualNumberOfIsAndNot(String input){
-        input.index("is")
-        return (input.co);
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+        int countIs = 0;
+        int countNot = 0;
+        int index = 0;
+        while ((index = input.indexOf("is", index)) != -1) {
+            countIs++;
+            index++;
+        } index = 0;
+        while ((index = input.indexOf("not", index)) != -1) {
+            countNot++;
+            index++;
+        }
+        return (countIs==countNot);
     }
 
     /**
@@ -58,7 +70,17 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        boolean happy = false;
+        int index = 0;
+        while ((index = input.indexOf("g", index)) != -1) {
+            if (index>1) {
+                if (input.charAt(index + 1) == 'g' || input.charAt(index - 1) == 'g') {
+                    happy = true;
+                }
+            }
+            index++;
+        }
+        return happy;
     }
 
 
@@ -70,6 +92,26 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int theCount = 0;
+        int index = 0;
+        ArrayList<Integer> indices = new ArrayList<>();
+        for (String s : input.split("")) {
+            String threeWiseMen = s+s+s;
+            while ((index = input.indexOf(threeWiseMen, index)) != -1) {
+                theCount++;
+                if (!indices.contains(index)) {
+                    indices.add(index);
+                }
+                index++;
+            }
+
+        }
+
+        Integer[] ia = new Integer[indices.size()];
+        ia = indices.toArray(ia);
+        for (Integer i : ia) {
+            System.out.print(i+" ");
+        }
+        return theCount;
     }
 }
